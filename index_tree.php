@@ -5,7 +5,7 @@
         <meta description="Admin de mapas" />
         <title>Documentacion</title>
         <style type="text/css">
-        h1,h2,h3,h4,h5 {font-size: 11px;}
+        h1,h2,h3,h4,h5 {font-size: 12px;}
         h1 {margin: 0px 0px 0px 0px; padding:0;} h1 p {margin: 0px 0px 0px 0px; padding:0;}
         h2 {margin: 0px 0px 0px 0px; padding:0;} h2 p {margin: 0px 0px 0px 10px; padding:0;}
         h3 {margin: 0px 0px 0px 0px; padding:0;} h3 p {margin: 0px 0px 0px 20px; padding:0;}
@@ -16,7 +16,7 @@
 	<?php
 	include "funciones.php";
 	$cadena = "function ";
-	$url = getMainDir() . "application/";
+	$url = getMainDir() . "public/";
 	if(file_exists($url)){
 		$directorio = opendir($url); //ruta actual
 		while ($archivo = readdir($directorio))

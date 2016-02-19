@@ -11,7 +11,7 @@
 	<?php
 	include "funciones.php";
 	$cadena = "function ";
-	$url = getMainDir() . "application/models/";
+	$url = getMainDir() . "application/controllers/";
 	if(file_exists($url)){
 		$directorio = opendir($url); //ruta actual
 		while ($archivo = readdir($directorio))
@@ -22,11 +22,16 @@
 				if($axo >= 2014){
 					//$owner = fileowner($url.$archivo);
 					$clss = str_ireplace("Controller.php", "", $archivo);
+					$clss = str_ireplace(".php", "", $archivo);
+					$create_date=traduceFecha(date("F d Y.", filectime($url . $archivo)));
+					$mod_date=traduceFecha(date("F d Y.", filemtime($url . $archivo)));
 
 					echo "<br><hr><br>Archivo: <b>" . $archivo . "</b><br>";
 					echo "* Author: usuario < email@esmas.net > <br>";
 					echo "* Type: Class Controller" . "<br>";
 					echo "* Description: Class " . $clss . "<br>";
+					echo "* Creation Date: ".$create_date."<br>";
+					echo "* Last Modification Date: ".$mod_date."<br><br>";
 					echo "<br>";
 					$fichero_url = fopen ($url . $archivo, "r");
 					while ($trozo = fgets($fichero_url, 1024)){
